@@ -26,10 +26,16 @@ export default function App() {
   }
 
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('saveItem'));
-    const createdLines = JSON.parse(localStorage.getItem('lines'));
-    if (items || createdLines) {
-      setComp(items);
+    try {
+      const items = JSON.parse(localStorage.getItem('saveItem'));
+      const createdLines = JSON.parse(localStorage.getItem('saveLines'));
+
+      if (items || createdLines) {
+        setComp(items);
+        setLines(createdLines);
+      }
+    } catch (e) {
+      console.log(e);
     }
   }, []);
 
@@ -74,7 +80,7 @@ function ComponentTracker({ comp }) {
   return (
     <div>
       {comp.map((comps) => (
-        <Component comps={comps} key={comp.id} />
+        <Component comps={comps} key={comps.id} />
       ))}
     </div>
   );
@@ -84,7 +90,7 @@ function Component({ comps }) {
   return (
     <>
       <Draggable>
-        <div className="box" style={{ border: '1px solid black' }}>
+        <div className="box">
           <h2>{comps.name}</h2>
         </div>
       </Draggable>
@@ -127,7 +133,7 @@ function AddComponents({ onAddComp }) {
 }
 
 function AddLine({ onAddLine }) {
-  const [type, setType] = useState('');
+  const [type, setType] = useState('|');
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -145,19 +151,11 @@ function AddLine({ onAddLine }) {
     <div>
       <form onSubmit={handleSubmit}>
         <label>Add a new line: </label>
-        <select>
-          <option
-            value="|"
-            className="vertical-line"
-            onClick={(e) => setType(e.target.value)}
-          >
+        <select onChange={(e) => setType(e.target.value)}>
+          <option value="|" className="vertical-line">
             |
           </option>
-          <option
-            value="horizontal"
-            className="horizontal-line"
-            onChange={(e) => setType(e.target.value)}
-          >
+          <option value="__" className="horizontal-line">
             -
           </option>
         </select>
@@ -181,7 +179,11 @@ function Line({ lineArr }) {
   return (
     <>
       <Draggable>
-        <h2 className="line">{lineArr.type}</h2>
+        <h2
+          className={lineArr.type === '|' ? 'vertical-line' : 'horizontal-line'}
+        >
+          {lineArr.type}
+        </h2>
       </Draggable>
     </>
   );

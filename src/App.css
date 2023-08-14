@@ -1,0 +1,65 @@
+html {
+  background: rgb(61, 60, 60);
+  font-family: sans-serif;
+}
+
+.box {
+  width: 100px;
+  height: 60px;
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.741);
+  border-radius: 3px;
+  cursor: grab;
+  border: 2px solid rgba(255, 255, 255, 0.796);
+  box-shadow: 4px 4px 4px;
+}
+
+.horizontal-line {
+  width: 8px;
+  height: 1px;
+  cursor: grab;
+  font-size: 100px;
+  color: rgba(240, 255, 255, 0.716);
+}
+
+.vertical-line {
+  width: 8px;
+  height: 28px;
+  cursor: grab;
+  font-size: 100px;
+  color: rgba(240, 255, 255, 0.716);
+}
+
+.control-panel {
+  display: inline-flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+button {
+  border-radius: 5px;
+  background-color: rgba(240, 255, 255, 0.43);
+  color: azure;
+  box-shadow: 4px 4px 4px black;
+}
+
+button:hover {
+  font-size: 14px;
+  background-color: rgba(220, 20, 60, 0.688);
+}
+
+h1,
+label {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.744);
+}
+
+input,
+select {
+  border-radius: 3px;
+  box-shadow: 4px 4px 4px;
+}
+
+input :hover {
+  border-radius: 3px;
+}
