@@ -16,19 +16,19 @@ export function AddLine({ onAddLine }) {
   }
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <label>Add a new line: </label>
         <select onChange={(e) => setType(e.target.value)}>
           <option value="|" className="vertical-line">
             |
           </option>
-          <option value="__" className="horizontal-line">
+          <option value="______" className="horizontal-line">
             -
           </option>
         </select>
         <button>Enter</button>
       </form>
-    </div>
+    </>
   );
 }

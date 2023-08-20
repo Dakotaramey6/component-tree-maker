@@ -5,7 +5,7 @@ html {
 
 .box {
   width: 100px;
-  height: 60px;
+  height: 100%;
   text-align: center;
   background-color: rgba(255, 0, 0, 0.741);
   border-radius: 3px;
@@ -15,19 +15,24 @@ html {
 }
 
 .horizontal-line {
-  width: 8px;
-  height: 1px;
+  max-height: 11px;
+  overflow: hidden;
+  width: 335px;
+  padding: 0;
   cursor: grab;
   font-size: 100px;
-  color: rgba(240, 255, 255, 0.716);
+  color: rgb(159, 167, 167);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .vertical-line {
-  width: 8px;
-  height: 28px;
+  overflow: hidden;
+  width: 25px;
   cursor: grab;
   font-size: 100px;
-  color: rgba(240, 255, 255, 0.716);
+  color: rgb(159, 167, 167);
 }
 
 .control-panel {
